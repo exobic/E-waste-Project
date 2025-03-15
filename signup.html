@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <title>CodePen - Animated Login Form using Html &amp; CSS Only</title> 
+
+  <link rel="stylesheet" href="./style1.css"> 
+
+ </head> 
+
+ <body> 
+    
+
+
+
+
+<!-- partial:index.partial.html --> 
+
+
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+    <div class="signin">
+      <div class="content">
+          <h2>Register</h2>
+          <form class="form">
+              <div class="inputBox">
+                  <input type="text" name="username" required> <i>Username</i>
+              </div>
+              <div class="inputBox">
+                  <input type="email" name="email" required> <i>Email</i>
+              </div>
+              <div class="inputBox">
+                  <input type="password" name="password" required> <i>Password</i>
+              </div>
+              <div class="remember-forgot">
+                  <label><br><input type="checkbox"> I agree to the terms & conditions</label>
+              </div>
+              <div class="inputBox">
+                  <input type="submit" value="SIGN UP">
+              </div>
+              <div class="login-register">
+                  <p>Already have an account? <a href="login.html" class="login-link">Login</a></p>
+              </div>
+          </form>
+      </div>
+  </div>
+  
+  <script>
+  document.querySelector('form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log('Sending signup:', { username, email, password }); // Debug
+    const res = await fetch('http://localhost:50007/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, email, password })
+    });
+    const data = await res.json();
+    console.log('Response:', data); // Debug
+    alert(data.message || data.error);
+});
+  </script>
+
+</section> <!-- partial --> 
+
+  
+    
+
+
+
+ </body>
+
+</html>
